@@ -16,6 +16,8 @@ const external = [
   'react-dom',
   'tailwind-merge',
   'uuid',
+  'node:fs/promises',
+  'node:path',
 ];
 
 export default defineConfig({
@@ -23,6 +25,8 @@ export default defineConfig({
     index: 'src/index.ts',
     'ui/index': 'src/ui/index.ts',
     'theme/index': 'src/theme/index.ts',
+    'storage/index': 'src/storage/index.ts',
+    'next/index': 'src/next/index.ts',
   },
   format: ['esm', 'cjs'],
   dts: true,

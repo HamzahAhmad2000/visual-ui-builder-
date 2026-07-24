@@ -4,3 +4,4 @@ dist/
 .next/
 *.tsbuildinfo
 dev-server*.log
+.visual-ui-builder/

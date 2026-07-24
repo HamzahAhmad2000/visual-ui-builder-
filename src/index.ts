@@ -8,3 +8,4 @@ export * from './ui/RichTextEditor';
 export * from './ui/Popover';
 export * from './ui/primitives';
 export * from './ui/utils';
+export * from './storage';

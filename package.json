@@ -27,6 +27,16 @@
       "import": "./dist/theme/index.js",
       "require": "./dist/theme/index.cjs"
     },
+    "./storage": {
+      "types": "./dist/storage/index.d.ts",
+      "import": "./dist/storage/index.js",
+      "require": "./dist/storage/index.cjs"
+    },
+    "./next": {
+      "types": "./dist/next/index.d.ts",
+      "import": "./dist/next/index.js",
+      "require": "./dist/next/index.cjs"
+    },
     "./styles.css": "./dist/styles.css"
   },
   "scripts": {
@@ -35,6 +45,7 @@
     "build": "npm run clean && npm run build:js && npm run build:css",
     "build:js": "tsup",
     "build:css": "tailwindcss -i ./src/theme/theme.css -o ./dist/styles.css --minify",
+    "prepare": "npm run build",
     "preview": "vite preview --host 0.0.0.0",
     "typecheck": "tsc --noEmit",
     "pack:dry-run": "npm pack --dry-run"

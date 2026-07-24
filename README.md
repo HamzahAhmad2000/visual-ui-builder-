@@ -40,3 +40,45 @@ Shared UI components are exported from `@project/visual-ui-builder/ui`. They are
 shadcn-style wrappers backed by Radix primitives, CVA variants, and the package
 theme tokens: `Button`, `Input`, `Textarea`, `Label`, `Switch`, `Select`,
 `Popover`, `Card`, `Badge`, `Separator`, `ColorPicker`, and `RichTextEditor`.
+
+Template storage is included. For client-only persistence, render
+`<VisualTemplateManager />`; it uses `localStorage` by default and lets users
+create, edit, duplicate, delete, and reopen saved templates/components.
+
+For Next.js filesystem persistence, add route handlers in the host app:
+
+```ts
+// app/api/visual-ui-builder/templates/route.ts
+import { createVisualTemplateCollectionHandlers } from '@project/visual-ui-builder/next';
+
+export const { GET, POST } = createVisualTemplateCollectionHandlers();
+```
+
+```ts
+// app/api/visual-ui-builder/templates/[id]/route.ts
+import { createVisualTemplateItemHandlers } from '@project/visual-ui-builder/next';
+
+export const { GET, PUT, DELETE } = createVisualTemplateItemHandlers();
+```
+
+```ts
+// app/api/visual-ui-builder/templates/[id]/duplicate/route.ts
+import { createVisualTemplateDuplicateHandler } from '@project/visual-ui-builder/next';
+
+export const { POST } = createVisualTemplateDuplicateHandler();
+```
+
+Then use the remote store in a client component:
+
+```tsx
+import {
+  VisualTemplateManager,
+  createRemoteVisualTemplateStore,
+} from '@project/visual-ui-builder/storage';
+
+const store = createRemoteVisualTemplateStore();
+
+export function TemplateLibrary() {
+  return <VisualTemplateManager store={store} />;
+}
+```
