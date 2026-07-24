@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.turbo/
+.next/
+*.tsbuildinfo
+dev-server*.log
