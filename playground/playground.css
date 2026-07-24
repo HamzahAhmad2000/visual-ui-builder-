@@ -17,6 +17,10 @@ body {
   padding: 1rem;
 }
 
+.playground-shell--theme-collapsed {
+  grid-template-columns: minmax(0, 1fr) 4rem;
+}
+
 .playground-main,
 .playground-sidebar {
   display: grid;
